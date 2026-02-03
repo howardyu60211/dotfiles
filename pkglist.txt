@@ -11,6 +11,8 @@ superfile
 zsh
 starship
 btop
+zed
+visual-studio-code-insiders-bin
 
 # fonts
 ttf-jetbrains-mono-nerd

@@ -1,6 +1,8 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
 REPO_DIR="https://github.com/howardyu60211/dotfiles.git"
+FLATPAK_LIST="$DOTFILES_DIR/flatpak_list.txt"
+PKG_LIST="$DOTFILES_DIR/pkglist.txt"
 LOG_FILE="install.log"
 
 GREEN='\033[0;32m'
@@ -44,19 +46,40 @@ else
     print_msg "Yay has been installed."
 fi
 
-if [ -f "$DOTFILES_DIR/pkglist.txt" ]; then
+if [ -f "$PKG_LIST" ]; then
     print_msg "Installing pkglist.txt using yay..."
 
-    yay -S --needed --noconfirm $(grep -vE "^\s*#" "$DOTFILES_DIR/pkglist.txt" | tr "\n" " ")
+    yay -S --needed --noconfirm $(grep -vE "^\s*#" "$PKG_LIST" | tr "\n" " ")
 
     print_success "Done！"
 else
     print_msg "Can't find pkglist.txt, skip..."
 fi
 
-# file manager
-bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
+if [ -f "$FLATPAK_LIST" ]; then
+    print_msg "Installing Flatpak applications..."
 
+    if ! command -v flatpak &> /dev/null; then
+        print_msg "Flatpak not found, Installing flatpak..."
+        sudo pacman -S --needed --noconfirm flatpak
+    fi
+
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+    print_msg "reading flatpak_list.txt and installing..."
+
+    FLATPAK_APPS=$(grep -vE "^\s*#" "$FLATPAK_LIST" | tr "\n" " ")
+
+    if [ -n "$FLATPAK_APPS" ]; then
+        flatpak install -y --noninteractive flathub $FLATPAK_APPS
+        print_success "Flatpak applications installed！"
+    else
+        print_msg "Flatpak list are empty. Done."
+    fi
+
+else
+    print_msg "flatpak_list.txt not found, skipping"
+fi
 
 
 # --- 2. setup stow ---
