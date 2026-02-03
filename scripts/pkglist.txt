@@ -1,7 +1,7 @@
 # windows manager & essentials
 hyprland
 waybar
-wofi
+rofi-wayland
 awww
 swaync
 sddm
