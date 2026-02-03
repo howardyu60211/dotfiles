@@ -5,6 +5,7 @@ rofi-wayland
 awww-git
 swaync
 sddm
+sddm-astronaut-theme
 
 # terminal & applications
 kitty

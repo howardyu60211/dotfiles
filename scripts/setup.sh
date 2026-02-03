@@ -127,5 +127,13 @@ for folder in */; do
 done
 
 print_success "system installation done!"
-print_msg "please add nvidia-drm.modeset=1 in GRUB_CMDLINE_LINUX_DEFAULT for grub"
-print_msg "or add it in /boot/loader/entries/ if using systemd-boot"
+print_msg 'There are a few settings requires changing manually:'
+
+print_msg '1) add "nvidia-drm.modeset=1 nvidia_drm.fbdev=1" in GRUB_CMDLINE_LINUX_DEFAULT for grub'
+print_msg " or add it in /boot/loader/entries/ if using systemd-boot"
+print_msg '2) change sddm theme in /etc/sddm.conf'
+print_msg " [Theme]"
+print_msg " Current=sddm-astronaut-theme"
+print_msg " and change theme in /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
+print_msg "ConfigFile=Themes/astronaut.conf"
+read -p "Press [ENTER] to continue"
