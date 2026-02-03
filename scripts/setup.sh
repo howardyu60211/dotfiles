@@ -30,6 +30,7 @@ else
     git clone "$REPO_URL" "$DOTFILES_DIR"
 fi
 
+# installing yay
 if ! command -v yay &> /dev/null; then
     print_msg "Installing yay..."
 
@@ -46,6 +47,21 @@ else
     print_msg "Yay has been installed."
 fi
 
+# rog g14 / nvidia system setup
+print_msg "installing G14 soruce..."
+sudo pacman-key --recv-keys 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+sudo pacman-key --lsign-key 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
+
+if ! grep -q "\[g14\]" /etc/pacman.conf; then
+    print_msg "Add g14 repo to /etc/pacman.conf..."
+    echo -e "\n[g14]\nServer = https://arch.asus-linux.org" | sudo tee -a /etc/pacman.conf
+
+    sudo pacman -Sy
+else
+    print_msg "G14 repo exist in pacman settings."
+fi
+
+# install package using yay
 if [ -f "$PKG_LIST" ]; then
     print_msg "Installing pkglist.txt using yay..."
 
@@ -56,6 +72,7 @@ else
     print_msg "Can't find pkglist.txt, skip..."
 fi
 
+# install package using flatpak
 if [ -f "$FLATPAK_LIST" ]; then
     print_msg "Installing Flatpak applications..."
 
@@ -81,6 +98,10 @@ else
     print_msg "flatpak_list.txt not found, skipping"
 fi
 
+# enable ROG system service
+sudo systemctl enable --now power-profiles-daemon.service
+sudo systemctl enable --now supergfxd.service
+sudo systemctl enable --now asusd.service
 
 # --- 2. setup stow ---
 print_msg "linking config (Stow)..."
@@ -104,3 +125,7 @@ for folder in */; do
     stow -R "$folder"
     print_success "$folder linked."
 done
+
+print_success "system installation done!"
+print_msg "please add nvidia-drm.modeset=1 in GRUB_CMDLINE_LINUX_DEFAULT for grub"
+print_msg "or add it in /boot/loader/entries/ if using systemd-boot"

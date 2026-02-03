@@ -1,0 +1,37 @@
+# windows manager & essentials
+hyprland
+waybar
+wofi
+awww
+swaync
+sddm
+
+# terminal & applications
+kitty
+superfile
+zsh
+starship
+btop
+zed
+visual-studio-code-insiders-bin
+
+# fonts
+ttf-jetbrains-mono-nerd
+noto-fonts-cjk
+
+# input method
+fcitx5-im
+fcitx5-chewing
+fcitx5-material-color
+fcitx5-skin-ori-git
+
+# rog system
+linux-g14
+linux-g14-headers
+asusctl
+supergfxctl
+rog-control-center
+nvidia-open-dkms
+nvidia-utils
+lib32-nvidia-utils
+power-profiles-deamon
