@@ -3,3 +3,5 @@ pkglist.txt
 README.md
 .git
 .gitignore
+install.log
+LICENSE

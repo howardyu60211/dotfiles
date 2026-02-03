@@ -1,9 +1,9 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
-REPO_DIR="https://github.com/howardyu60211/dotfiles.git"
-FLATPAK_LIST="$DOTFILES_DIR/flatpak_list.txt"
-PKG_LIST="$DOTFILES_DIR/pkglist.txt"
-LOG_FILE="install.log"
+FLATPAK_LIST="$DOTFILES_DIR/flatpakList.txt"
+PKG_LIST="$DOTFILES_DIR/pkgList.txt"
+LOG_FILE="$DOTFILES_DIR/install.log"
+REPO_URL="https://github.com/howardyu60211/dotfiles.git"
 
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -48,7 +48,7 @@ else
 fi
 
 # rog g14 / nvidia system setup
-print_msg "installing G14 soruce..."
+print_msg "installing G14 source..."
 sudo pacman-key --recv-keys 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
 sudo pacman-key --lsign-key 8F654886F17D497FEFE3DB448B15A6B0E9A3FA35
 
