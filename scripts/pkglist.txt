@@ -34,4 +34,4 @@ rog-control-center
 nvidia-open-dkms
 nvidia-utils
 lib32-nvidia-utils
-power-profiles-deamon
+power-profiles-daemon
