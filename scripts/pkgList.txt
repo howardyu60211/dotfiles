@@ -2,7 +2,7 @@
 hyprland
 waybar
 rofi-wayland
-awww
+awww-git
 swaync
 sddm
 
