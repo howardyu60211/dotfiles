@@ -1,0 +1,17 @@
+# windows manager & essentials
+hyprland
+waybar
+wofi
+awww
+swaync
+
+# terminal & applications
+kitty
+superfile
+zsh
+starship
+btop
+
+# fonts
+ttf-jetbrains-mono-nerd
+noto-fonts-cjk
