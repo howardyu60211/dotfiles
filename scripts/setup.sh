@@ -1,7 +1,7 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
-FLATPAK_LIST="$DOTFILES_DIR/flatpakList.txt"
-PKG_LIST="$DOTFILES_DIR/pkgList.txt"
+FLATPAK_LIST="$DOTFILES_DIR/scripts/flatpakList.txt"
+PKG_LIST="$DOTFILES_DIR/scripts/pkgList.txt"
 LOG_FILE="$DOTFILES_DIR/install.log"
 REPO_URL="https://github.com/howardyu60211/dotfiles.git"
 
