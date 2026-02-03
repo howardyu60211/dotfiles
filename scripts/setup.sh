@@ -76,11 +76,6 @@ fi
 if [ -f "$FLATPAK_LIST" ]; then
     print_msg "Installing Flatpak applications..."
 
-    if ! command -v flatpak &> /dev/null; then
-        print_msg "Flatpak not found, Installing flatpak..."
-        sudo pacman -S --needed --noconfirm flatpak
-    fi
-
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
     print_msg "reading flatpak_list.txt and installing..."
@@ -98,10 +93,18 @@ else
     print_msg "flatpak_list.txt not found, skipping"
 fi
 
+print_msg "Installing Vencord..."
+sh -c "$(curl -sS https://raw.githubusercontent.com/Vencord/Installer/main/install.sh)" -- -i -b stable -l flatpak
+print_success "Vencord installed!"
+
 # enable ROG system service
 sudo systemctl enable --now power-profiles-daemon.service
 sudo systemctl enable --now supergfxd.service
 sudo systemctl enable --now asusd.service
+
+# enable bluetooth service
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now NetworkManager.service
 
 # --- 2. setup stow ---
 print_msg "linking config (Stow)..."

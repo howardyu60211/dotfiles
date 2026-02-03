@@ -1,18 +1,86 @@
-# windows manager & essentials
+# general
+curl
+wget
+unzip
+tar
+jq
+fzf
+
+# windows manager
 hyprland
+hypridle
+hyprlock
+
+# essentials
+qt5-wayland
+qt6-wayland
+qt6ct
+polkit-gnome
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+xdg-user-dirs
+nwg-look
+nwg-displays
+flatpak
+brightnessctl
+
+# bluetooth
+bluez
+bluez-utils
+bluemen
+overskride
+
+# pipewire
+pipewire
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+wireplumber
+pavucontrol
+
+# network
+networkmanager
+network-manager-applet
+
+# UI
 waybar
 rofi-wayland
-awww-git
+
+# wallpaper engine
+swww
+
+# notification center
 swaync
+libnotify
+
+# clipboard manager
+wl-clipboard
+wl-clip-persist
+cliphist
+
+# snapshot
+slurp
+grim
+
+# login manager
 sddm
 sddm-astronaut-theme
 
-# terminal & applications
+# terminal
 kitty
-superfile
 zsh
 starship
-btop
+eza
+fastfetch
+htop
+
+# auto mount
+gvfs
+
+# file manager
+superfile
+
+# IDE
 zed
 visual-studio-code-insiders-bin
 
