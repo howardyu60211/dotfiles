@@ -28,7 +28,6 @@ brightnessctl
 bluez
 bluez-utils
 bluemen
-overskride
 
 # pipewire
 pipewire
@@ -86,6 +85,7 @@ visual-studio-code-insiders-bin
 
 # fonts
 ttf-jetbrains-mono-nerd
+ttf-font-awesome-5
 noto-fonts-cjk
 
 # input method
@@ -102,5 +102,6 @@ supergfxctl
 rog-control-center
 nvidia-open-dkms
 nvidia-utils
+nvidia-settings
 lib32-nvidia-utils
 power-profiles-daemon

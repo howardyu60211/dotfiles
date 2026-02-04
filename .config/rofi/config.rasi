@@ -1,0 +1,22 @@
+/* config.rasi */
+configuration {
+    modi: "drun,run,window";
+    icon-theme: "Papirus"; /* 確保你有安裝 icon theme */
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   Window ";
+    sidebar-mode: true;
+}
+
+@theme "catppuccin-mocha" /* 或是你喜歡的主題 */
+
+/* 這裡可以加入簡單的樣式覆蓋，確保字體使用 FontAwesome */
+* {
+    font: "JetBrainsMono Nerd Font 12"; /* 主要字體 */
+}

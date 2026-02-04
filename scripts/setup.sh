@@ -106,6 +106,9 @@ sudo systemctl enable --now asusd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
 
+# enable user to userr supergfx without sudo
+sudo usermod -aG users $USER
+
 # --- 2. setup stow ---
 print_msg "linking config (Stow)..."
 cd "$DOTFILES_DIR"
@@ -129,6 +132,10 @@ for folder in */; do
     print_success "$folder linked."
 done
 
+print_msg "Make scripts runable..."
+chmod +x ~/dotfiles/scripts/*.sh
+print_success "Done!"
+
 print_success "system installation done!"
 print_msg 'There are a few settings requires changing manually:'
 
@@ -138,5 +145,5 @@ print_msg '2) change sddm theme in /etc/sddm.conf'
 print_msg " [Theme]"
 print_msg " Current=sddm-astronaut-theme"
 print_msg " and change theme in /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
-print_msg "ConfigFile=Themes/astronaut.conf"
+print_msg " ConfigFile=Themes/astronaut.conf"
 read -p "Press [ENTER] to continue"
