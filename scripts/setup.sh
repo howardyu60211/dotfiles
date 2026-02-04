@@ -145,16 +145,34 @@ print_msg "Make scripts runable..."
 chmod +x ~/dotfiles/scripts/*.sh
 print_success "Done!"
 
+if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
+    print_msg "setting SDDM theme..."
+
+    if [ ! -f "/etc/sddm.conf" ]; then
+        sudo sddm --example-config | sudo tee /etc/sddm.conf > /dev/null
+    fi
+
+    if grep -q "\[Theme\]" /etc/sddm.conf; then
+        sudo sed -i '/^\[Theme\]/,/^\[/ s/^Current=.*/Current=sddm-astronaut-theme/' /etc/sddm.conf
+    else
+        echo -e "\n[Theme]\nCurrent=sddm-astronaut-theme" | sudo tee -a /etc/sddm.conf
+    fi
+
+    METADATA_FILE="/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
+    if [ -f "$METADATA_FILE" ]; then
+        sudo sed -i 's/^ConfigFile=.*/ConfigFile=Themes\/astronaut.conf/' "$METADATA_FILE"
+    fi
+
+    print_success "SDDM theme setup！"
+else
+    print_msg "sddm-astronaut-theme not found."
+fi
+
 print_success "system installation done!"
 print_msg 'There are a few settings requires changing manually:'
 
 print_msg '1) add "nvidia-drm.modeset=1 nvidia_drm.fbdev=1" in GRUB_CMDLINE_LINUX_DEFAULT for grub'
 print_msg " or add it in /boot/loader/entries/ if using systemd-boot"
-print_msg '2) change sddm theme in /etc/sddm.conf'
-print_msg " [Theme]"
-print_msg " Current=sddm-astronaut-theme"
-print_msg " and change theme in /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
-print_msg " ConfigFile=Themes/astronaut.conf"
 read -p "Press [ENTER] to continue"
 
 if [ -d "$DEFAULT_WAL" ]; then
