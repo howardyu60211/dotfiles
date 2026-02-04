@@ -8,6 +8,7 @@ fzf
 
 # windows manager
 hyprland
+xorg-xwayland
 hypridle
 hyprlock
 
@@ -17,6 +18,7 @@ qt6-wayland
 qt6ct
 polkit-gnome
 xdg-desktop-portal-gtk
+xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
 xdg-user-dirs
 nwg-look

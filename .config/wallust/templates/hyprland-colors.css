@@ -2,10 +2,10 @@ $background = rgb({{background | strip}})
 $foreground = rgb({{foreground | strip}})
 
 # ~blue
-$accent = rgb({{color4 | strip}})
+$primary = rgb({{color4 | strip}})
 
 # ~red
-$secondary = rgb({{color1 | strip}})
+$on_surface = rgb({{color1 | strip}})
 
-$active_border = $accent $secondary 45deg
+$active_border = $primary $on_surface 45deg
 $inactive_border = $background
