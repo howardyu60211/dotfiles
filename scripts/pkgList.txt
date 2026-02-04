@@ -60,6 +60,7 @@ libnotify
 wl-clipboard
 wl-clip-persist
 cliphist
+rofi-img-cliphist-git
 
 # snapshot
 satty
