@@ -9,6 +9,7 @@ fzf
 # windows manager
 hyprland
 xorg-xwayland
+hyprland-devel
 hypridle
 hyprlock
 

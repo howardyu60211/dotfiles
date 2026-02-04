@@ -168,6 +168,12 @@ else
     print_msg "sddm-astronaut-theme not found."
 fi
 
+print_msg "Installing hyprspace plugin..."
+hyprpm add https://github.com/KZDKM/Hyprspace
+hyprpm enable Hyprspace
+hyprpm reload
+print_success "Done."
+
 print_success "system installation done!"
 print_msg 'There are a few settings requires changing manually:'
 
