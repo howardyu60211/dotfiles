@@ -164,6 +164,7 @@ if [ -d "$DEFAULT_WAL" ]; then
         print_msg "Wallust command not found. Skipping color generation."
     fi
 
+    mkdir -P "~/.cache/"
     echo "$DEFAULT_WAL" > "$HOME/.cache/current_wallpaper"
 else
     print_msg "Wallpaper not found: $DEFAULT_WAL"
