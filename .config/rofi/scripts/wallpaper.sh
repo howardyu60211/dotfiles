@@ -18,7 +18,7 @@ if [ -n "$selected" ]; then
     killall -SIGUSR2 waybar
     killall -SIGUSR1 kitty
 
-    # echo "$WALL_DIR/$selected" > ~/.current_wallpaper
+    echo "$WALL_DIR/$selected" > "$HOME/.cache/current_wallpaper"
 
     notify-send "Wallpaper & color theme changed." "$selected" -i "$WALL_DIR/$selected"
 fi

@@ -1,8 +1,11 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
+WALL_DIR="$HOME/dotfiles/wallpapers"
+
 FLATPAK_LIST="$DOTFILES_DIR/scripts/flatpakList.txt"
 PKG_LIST="$DOTFILES_DIR/scripts/pkgList.txt"
 LOG_FILE="$DOTFILES_DIR/install.log"
+
 REPO_URL="https://github.com/howardyu60211/dotfiles.git"
 
 GREEN='\033[0;32m'
@@ -150,3 +153,18 @@ print_msg " Current=sddm-astronaut-theme"
 print_msg " and change theme in /usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
 print_msg " ConfigFile=Themes/astronaut.conf"
 read -p "Press [ENTER] to continue"
+
+if [ -d "$WALL_DIR/sushi_colors.jpg" ]; then
+    print_msg "Setup default wallpaper & themes"
+
+    if command -v wallust &> /dev/null; then
+        wallust run "$WALL_DIR/sushi_colors.jpg"
+        print_success "Color scheme generated!"
+    else
+        print_msg "Wallust command not found. Skipping color generation."
+    fi
+
+    echo "$DEFAULT_WALL" > "$HOME/.cache/current_wallpaper"
+else
+    print_msg "Wallpaper not found: $WALL_DIR/sushi_colors.jpg"
+fi
