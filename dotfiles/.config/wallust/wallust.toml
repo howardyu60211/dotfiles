@@ -5,18 +5,15 @@ palette = "dark16"
 [filter]
 image_filter = "lanczos"
 
-[[entry]]
-template = "hyprland-colors.conf"
-target = "~/.config/hypr/colors.conf"
+[templates]
+hyprland.template = "hyprland-colors.conf"
+hyprland.target = "~/.config/hypr/colors.conf"
 
-[[entry]]
-template = "waybar-colors.css"
-target = "~/.config/waybar/colors.css"
+waybar.template = "waybar-colors.css"
+waybar.target = "~/.config/waybar/colors.css"
 
-[[entry]]
-template = "rofi-colors.rasi"
-target = "~/.config/rofi/colors.rasi"
+rofi.template = "rofi-colors.rasi"
+rofi.target = "~/.config/rofi/colors.rasi"
 
-[[entry]]
-template = "kitty-colors.conf"
-target = "~/.config/kitty/colors.conf"
+kitty.template = "kitty-colors.conf"
+kitty.target = "~/.config/kitty/colors.conf"

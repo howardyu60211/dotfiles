@@ -5,6 +5,8 @@ unzip
 tar
 jq
 fzf
+cmake
+cpio
 
 # windows manager
 hyprland
@@ -32,7 +34,7 @@ playerctl
 # bluetooth
 bluez
 bluez-utils
-bluemen
+blueman
 
 # pipewire
 pipewire

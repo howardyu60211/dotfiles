@@ -1,0 +1,11 @@
+* {
+    /* 核心三色 */
+    background: #1C1C1E;
+    foreground: #FDE3D4;
+    accent:     #587CB8; /* 與 Hyprland 保持一致 */
+
+    /* 衍生顏色 */
+    background-alt: #424245; /* 稍微亮一點的背景，用於選中項目背景 */
+    selected:       #587CB8; /* 選中項目的文字或邊框 */
+    urgent:         #14141D;
+}

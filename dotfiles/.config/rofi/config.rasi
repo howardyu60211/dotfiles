@@ -14,7 +14,7 @@ configuration {
     sidebar-mode: true;
 }
 
-@theme "catppuccin-mocha" /* 或是你喜歡的主題 */
+@theme "~/.config/rofi/colors.rasi" /* 或是你喜歡的主題 */
 
 /* 這裡可以加入簡單的樣式覆蓋，確保字體使用 FontAwesome */
 * {

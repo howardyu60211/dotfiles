@@ -11,15 +11,13 @@ fi
 selected=$(ls "$WALL_DIR" | grep -E '\.(jpg|jpeg|png|gif|webp)$' | rofi -dmenu -i -p "  Wallpaper" -theme-str 'window {width: 500px;}')
 
 if [ -n "$selected" ]; then
-    cp "$selected" "$HOME/.cache/current_wallpaper"
+    cp "$WALL_DIR/$selected" "$HOME/.cache/current_wallpaper"
     swww img "$HOME/.cache/current_wallpaper" --transition-type grow --transition-pos 0.9,0.9 --transition-step 90
 
     wallust run "$WALL_DIR/$selected"
     hyprctl reload
     killall -SIGUSR2 waybar
     killall -SIGUSR1 kitty
-
-    echo "$WALL_DIR/$selected" > "$HOME/.cache/current_wallpaper"
 
     notify-send "Wallpaper & color theme changed." "$selected" -i "$WALL_DIR/$selected"
 fi

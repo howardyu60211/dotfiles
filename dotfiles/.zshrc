@@ -1,5 +1,6 @@
 export PATH=$PATH:~/.local/bin/
 
+eval "$(starship init zsh)"
 source <(fzf --zsh)
 
 # zsh history

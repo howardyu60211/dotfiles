@@ -12,8 +12,12 @@ GREEN='\033[0;32m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
-print_msg() { echo -e "${BLUE}[INFO]${NC} $1" }
-print_success() { echo -e "${GREEN}[OK]${NC} $1" }
+print_msg() {
+	echo -e "${BLUE}[INFO]${NC} $1"
+}
+print_success() {
+	echo -e "${GREEN}[OK]${NC} $1"
+}
 
 set -e
 
@@ -108,6 +112,9 @@ sudo systemctl enable --now asusd.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
 
+# enable sddm service
+sudo systemctl enable --now sddm.service
+
 # enable user to userr supergfx without sudo
 sudo usermod -aG users $USER
 
@@ -138,6 +145,7 @@ for folder in */; do
 done
 
 print_msg "Linking wallpapers..."
+mkdir -p $HOME/Pictures/wallpapers
 ln -sf "$DOTFILES_DIR/wallpapers" "$HOME/Pictures/wallpapers"
 print_success "Done!"
 
@@ -169,6 +177,7 @@ else
 fi
 
 print_msg "Installing hyprspace plugin..."
+hyprpm update
 hyprpm add https://github.com/KZDKM/Hyprspace
 hyprpm enable Hyprspace
 hyprpm reload

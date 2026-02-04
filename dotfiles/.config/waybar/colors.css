@@ -1,0 +1,14 @@
+@define-color background #1C1C1E;
+@define-color foreground #FDE3D4;
+@define-color cursor #A59AA3;
+
+@define-color accent #587CB8;
+
+@define-color urgent #14141D;
+
+@define-color color1 @urgent;
+@define-color color2 @accent;
+@define-color color3 @accent;
+@define-color color4 @accent;
+@define-color color5 @accent;
+@define-color color6 @accent;
