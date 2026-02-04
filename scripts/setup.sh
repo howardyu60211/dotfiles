@@ -1,7 +1,7 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
 
-DEFAULT_WAL="$HOME/dotfiles/wallpapers/sushi_colors.jpg"
+DEFAULT_WAL="$HOME/Pictures/wallpapers/sushi_colors.jpg"
 FLATPAK_LIST="$DOTFILES_DIR/scripts/flatpakList.txt"
 PKG_LIST="$DOTFILES_DIR/scripts/pkgList.txt"
 LOG_FILE="$DOTFILES_DIR/install.log"
@@ -13,7 +13,6 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 print_msg() { echo -e "${BLUE}[INFO]${NC} $1" }
-
 print_success() { echo -e "${GREEN}[OK]${NC} $1" }
 
 set -e
@@ -137,6 +136,10 @@ for folder in */; do
     stow -R "$folder"
     print_success "$folder linked."
 done
+
+print_msg "Linking wallpapers..."
+ln -sf "$DOTFILES_DIR/wallpapers" "$HOME/Pictures/wallpapers"
+print_success "Done!"
 
 print_msg "Make scripts runable..."
 chmod +x ~/dotfiles/scripts/*.sh
