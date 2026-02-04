@@ -1,0 +1,14 @@
+@define-color background {{background}};
+@define-color foreground {{foreground}};
+@define-color cursor {{cursor}};
+
+@define-color accent {{color4}};
+
+@define-color urgent {{color1}};
+
+@define-color color1 @urgent;
+@define-color color2 @accent;
+@define-color color3 @accent;
+@define-color color4 @accent;
+@define-color color5 @accent;
+@define-color color6 @accent;

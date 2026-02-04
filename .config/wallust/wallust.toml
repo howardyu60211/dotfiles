@@ -1,0 +1,22 @@
+backend = "kmeans"
+color_space = "lab"
+palette = "dark16"
+
+[filter]
+image_filter = "lanczos"
+
+[[entry]]
+template = "hyprland-colors.conf"
+target = "~/.config/hypr/colors.conf"
+
+[[entry]]
+template = "waybar-colors.css"
+target = "~/.config/waybar/colors.css"
+
+[[entry]]
+template = "rofi-colors.rasi"
+target = "~/.config/rofi/colors.rasi"
+
+[[entry]]
+template = "kitty-colors.conf"
+target = "~/.config/kitty/colors.conf"

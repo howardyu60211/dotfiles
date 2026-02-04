@@ -23,6 +23,7 @@ nwg-look
 nwg-displays
 flatpak
 brightnessctl
+playerctl
 
 # bluetooth
 bluez
@@ -44,6 +45,7 @@ network-manager-applet
 # UI
 waybar
 rofi-wayland
+papirus-icon-theme
 
 # wallpaper engine
 swww
@@ -58,8 +60,7 @@ wl-clip-persist
 cliphist
 
 # snapshot
-slurp
-grim
+satty
 
 # login manager
 sddm
@@ -87,6 +88,9 @@ visual-studio-code-insiders-bin
 ttf-jetbrains-mono-nerd
 ttf-font-awesome-5
 noto-fonts-cjk
+
+# color extractor
+wallust
 
 # input method
 fcitx5-im

@@ -13,7 +13,12 @@ selected=$(ls "$WALL_DIR" | grep -E '\.(jpg|jpeg|png|gif|webp)$' | rofi -dmenu -
 if [ -n "$selected" ]; then
     swww img "$WALL_DIR/$selected" --transition-type grow --transition-pos 0.9,0.9 --transition-step 90
 
+    wallust run "$WALL_DIR/$selected"
+    hyprctl reload
+    killall -SIGUSR2 waybar
+    killall -SIGUSR1 kitty
+
     # echo "$WALL_DIR/$selected" > ~/.current_wallpaper
 
-    notify-send "Wallpaper Changed" "$selected" -i "$WALL_DIR/$selected"
+    notify-send "Wallpaper & color theme changed." "$selected" -i "$WALL_DIR/$selected"
 fi
