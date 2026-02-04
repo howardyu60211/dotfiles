@@ -1,7 +1,7 @@
 # --- 0. basic variable and help function setup ---
 DOTFILES_DIR="$HOME/dotfiles"
-WALL_DIR="$HOME/dotfiles/wallpapers"
 
+DEFAULT_WAL="$HOME/dotfiles/wallpapers/sushi_colors.jpg"
 FLATPAK_LIST="$DOTFILES_DIR/scripts/flatpakList.txt"
 PKG_LIST="$DOTFILES_DIR/scripts/pkgList.txt"
 LOG_FILE="$DOTFILES_DIR/install.log"
@@ -154,17 +154,17 @@ print_msg " and change theme in /usr/share/sddm/themes/sddm-astronaut-theme/meta
 print_msg " ConfigFile=Themes/astronaut.conf"
 read -p "Press [ENTER] to continue"
 
-if [ -d "$WALL_DIR/sushi_colors.jpg" ]; then
+if [ -d "$DEFAULT_WAL" ]; then
     print_msg "Setup default wallpaper & themes"
 
     if command -v wallust &> /dev/null; then
-        wallust run "$WALL_DIR/sushi_colors.jpg"
+        wallust run "$DEFAULT_WAL"
         print_success "Color scheme generated!"
     else
         print_msg "Wallust command not found. Skipping color generation."
     fi
 
-    echo "$DEFAULT_WALL" > "$HOME/.cache/current_wallpaper"
+    echo "$DEFAULT_WAL" > "$HOME/.cache/current_wallpaper"
 else
-    print_msg "Wallpaper not found: $WALL_DIR/sushi_colors.jpg"
+    print_msg "Wallpaper not found: $DEFAULT_WAL"
 fi
