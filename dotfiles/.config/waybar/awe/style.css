@@ -1,0 +1,164 @@
+@define-color critical #ff0000; /* critical color */
+@define-color warning #f3f809;  /* warning color */
+@define-color fgcolor #ffffff;  /* foreground color */
+@define-color bgcolor #303030;  /* background color */
+@define-color bgcolor #222436;  /* background color */
+@define-color alert   #df3320;
+
+@define-color accent1 #ff7a93;
+@define-color accent2 #b9f27c;
+@define-color accent3 #ff9e64;
+@define-color accent4 #bb9af7;
+@define-color accent5 #7da6ff;
+@define-color accent6 #0db9d7;
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    border: none;
+    font-family: "JetBrainsMono NF";
+    /* Recommended font sizes: 720p: ~14px, 1080p: ~18px */
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: rgba(34, 36, 54, 0.6);
+    /* border-bottom: 0px solid rgba(100, 114, 125, 0.5); */
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces button {
+    padding: 0px;
+    margin: 5px 0 5px 0;
+    background-color: transparent;
+    color: #ffffff;
+    min-width: 36px;
+}
+
+#workspaces button.active {
+    background-color: #ddddff;
+    color: #303030;
+    min-width: 36px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.focused {
+    background-color: #bbccdd;
+    color: #323232;
+}
+
+#workspaces button.urgent {
+    color: red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#custom-weather,
+#custom-crypto {
+    padding: 0px 3px;
+    margin: 5px 3px 5px 3px;
+    color: @fgcolor;
+    background-color:transparent;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+#memory {
+    color: #86e2d5;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#custom-weather,
+#clock {
+    color: #90ee90;
+}
+
+#battery {
+    color: @accent5;
+}
+
+#battery.critical:not(.charging) {
+    background-color: @critical;
+    color: @white;
+}
+
+#cpu {
+    color: @accent1;
+}
+
+#memory {
+    color: #86e2d5;
+}
+
+#network {
+    color: @accent3;
+}
+
+#network.disconnected {
+    color: @alert;
+}
+
+#pulseaudio {
+    color: @accent4;
+}
+
+#pulseaudio.muted {
+    color: #a0a0a0;
+}
+
+#custom-separator {
+    color: #606060;
+    margin: 0 1px;
+    padding-bottom: 0px;
+}
+
+#custom-wmname {
+    min-width: 36px;
+    font-size: 15px;
+}
+
+#custom-media.youtube {
+    color: #ff0000; /* YouTube Red */
+}
+
+#custom-media.spotify {
+    color: #1ed760; /* Spotify Green */
+}
+
+#custom-crypto.bitcoin {
+    color: #F7931A; /* Bitcoin's signature orange */
+}
+
+#custom-crypto.ethereum {
+    color: #627EEA; /* Ethereum's signature blue */
+}

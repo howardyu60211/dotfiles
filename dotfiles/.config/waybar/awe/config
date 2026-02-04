@@ -1,0 +1,149 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 33,
+  "width": 1500,
+  "margin": "7, 0, 0, 0",
+  // Choose the order of the modules
+  "modules-left": [
+    "custom/wmname",
+    "hyprland/workspaces",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "network"
+  ],
+  "modules-center": [
+    "custom/media",
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/separator",
+    "battery",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "custom/weather",
+    "clock"
+  ],
+  "custom/wmname": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "windows-launcher.sh"
+  },
+  "hyprland/workspaces": {
+    "format": "{}",
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "persistent-workspaces": {
+      "*": 2
+    }
+  },
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 6
+  },
+  "hyprland/window": {
+    "max-length": 40,
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) | Vscode": "$1",
+      "(.*) Microsoft Teams": "$1",
+      "": "(っ﹏-) .｡"
+    },
+    "separate-outputs": true
+  },
+  "clock": {
+    "interval": 1,
+    "locale": "C",
+    "format": "{:%I:%M %p} ",
+    "format-alt": "{:%a, %b %d} ",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false,
+    "on-click": "kitty -e 'htop'",
+    "interval": 3
+  },
+  "memory": {
+    "interval": 9,
+    "format": " {used:0.2f}GB",
+    "on-click": "kitty -e 'htop'",
+    "tooltip": false,
+    "warning": 70,
+    "critical": 90
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "󱐲 {capacity}",
+    "format-charging": "󱐱 {capacity}",
+    "format-plugged": "󱙤 {capacity}",
+    "format-alt": "󱐲 {time}",
+    // "format-good": "", // An empty format will hide the module
+    "format-full": "󰩗 Full"
+    // "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": " {essid}",
+    "format-ethernet": " {ifname}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "format-disconnected": "󰣼 offline",
+    "format-alt": " {signalStrength}%",
+    "tooltip-format": "{ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon} {volume}% / {format_source}",
+    "format-bluetooth": " {volume}% / {format_source}",
+    "format-bluetooth-muted": "  / {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 2,
+    "exec": "~/.config/waybar/now-playing.sh",
+    "on-click": "playerctl play-pause",
+    "tooltip": false
+  },
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "return-type": "json",
+    "exec": "~/.config/waybar/weather.py",
+    "interval": 600
+  }
+}

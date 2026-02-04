@@ -168,7 +168,7 @@ if [ -d "$DEFAULT_WAL" ]; then
     fi
 
     mkdir -p ~/.cache/current_wallpaper
-    echo "$DEFAULT_WAL" > "$HOME/.cache/current_wallpaper"
+    cp "$DEFAULT_WAL" "$HOME/.cache/current_wallpaper"
 else
     print_msg "Wallpaper not found: $DEFAULT_WAL"
 fi

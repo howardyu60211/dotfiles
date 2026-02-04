@@ -11,7 +11,8 @@ fi
 selected=$(ls "$WALL_DIR" | grep -E '\.(jpg|jpeg|png|gif|webp)$' | rofi -dmenu -i -p "  Wallpaper" -theme-str 'window {width: 500px;}')
 
 if [ -n "$selected" ]; then
-    swww img "$WALL_DIR/$selected" --transition-type grow --transition-pos 0.9,0.9 --transition-step 90
+    cp "$selected" "$HOME/.cache/current_wallpaper"
+    swww img "$HOME/.cache/current_wallpaper" --transition-type grow --transition-pos 0.9,0.9 --transition-step 90
 
     wallust run "$WALL_DIR/$selected"
     hyprctl reload

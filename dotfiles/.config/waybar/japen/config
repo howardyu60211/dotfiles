@@ -1,0 +1,16 @@
+"modules-left": ["hyprland/workspaces", "hyprland/window"],
+"modules-center": ["clock"],
+"modules-right": ["network", "bluetooth", "cpu", "memory", "tray"],
+
+"clock": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+},
+
+"hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+        "active": "󰝥",
+        "default": "◦"
+    }
+}
