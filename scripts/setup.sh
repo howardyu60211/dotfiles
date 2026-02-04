@@ -109,6 +109,9 @@ sudo systemctl enable --now NetworkManager.service
 # enable user to userr supergfx without sudo
 sudo usermod -aG users $USER
 
+# switch to zsh
+chsh -s $(which zsh)
+
 # --- 2. setup stow ---
 print_msg "linking config (Stow)..."
 cd "$DOTFILES_DIR"
