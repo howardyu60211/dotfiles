@@ -1,32 +1,26 @@
 #!/bin/bash
 
-CONFIG_DIR="$HOME/dotfiles/waybar"
+CONFIG_DIR="$HOME/.config/waybar"
+THEMES_DIR="$CONFIG_DIR/themes"
 
-STYLE_1="  Standard"
-STYLE_2=" pí  Minimal"
-STYLE_3="  Floating Bar"
+THEME_NAME=$(ls "$THEMES_DIR" | rofi -dmenu -p "Waybar Theme")
 
-options="$STYLE_1\n$STYLE_2\n$STYLE_3"
+if [ -z "$THEME_NAME" ]; then
+    exit 0
+fi
 
-selected=$(echo -e "$options" | rofi -dmenu -i -p "  Waybar Style")
+if [ ! -d "$THEMES_DIR/$THEME_NAME" ]; then
+    rofi -e "Error: Theme directory not found!"
+    exit 1
+fi
 
-case $selected in
-    "$STYLE_1")
-        ln -sf "$CONFIG_DIR/config_standard" "$HOME/.config/waybar/config"
-        ln -sf "$CONFIG_DIR/style_standard.css" "$HOME/.config/waybar/style.css"
-        ;;
-    "$STYLE_2")
-        ln -sf "$CONFIG_DIR/config_minimal" "$HOME/.config/waybar/config"
-        ln -sf "$CONFIG_DIR/style_minimal.css" "$HOME/.config/waybar/style.css"
-        ;;
-    "$STYLE_3")
-        ln -sf "$CONFIG_DIR/config_floating" "$HOME/.config/waybar/config"
-        ln -sf "$CONFIG_DIR/style_floating.css" "$HOME/.config/waybar/style.css"
-        ;;
-esac
+ln -sf "$THEMES_DIR/$THEME_NAME/config" "$CONFIG_DIR/config"
 
-if [ -n "$selected" ]; then
-    killall waybar
-    waybar &
-    notify-send "Waybar reloaded" "$selected"
+ln -sf "$THEMES_DIR/$THEME_NAME/style.css" "$CONFIG_DIR/style.css"
+
+if pgrep -x "waybar" > /dev/null; then
+    pkill -SIGUSR2 waybar
+else
+    waybar > /dev/null 2>&1 &
+    disown
 fi
