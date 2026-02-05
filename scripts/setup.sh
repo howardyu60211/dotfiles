@@ -168,7 +168,7 @@ if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then
 
     METADATA_FILE="/usr/share/sddm/themes/sddm-astronaut-theme/metadata.desktop"
     if [ -f "$METADATA_FILE" ]; then
-        sudo sed -i 's/^ConfigFile=.*/ConfigFile=Themes\/astronaut.conf/' "$METADATA_FILE"
+        sudo sed -i 's/^ConfigFile=.*/ConfigFile=Themes\/hyprland_kath.conf/' "$METADATA_FILE"
     fi
 
     print_success "SDDM theme setup！"
@@ -182,13 +182,6 @@ hyprpm add https://github.com/KZDKM/Hyprspace
 hyprpm enable Hyprspace
 hyprpm reload
 print_success "Done."
-
-print_success "system installation done!"
-print_msg 'There are a few settings requires changing manually:'
-
-print_msg '1) add "nvidia-drm.modeset=1 nvidia_drm.fbdev=1" in GRUB_CMDLINE_LINUX_DEFAULT for grub'
-print_msg " or add it in /boot/loader/entries/ if using systemd-boot"
-read -p "Press [ENTER] to continue"
 
 if [ -d "$DEFAULT_WAL" ]; then
     print_msg "Setup default wallpaper & themes"
@@ -205,3 +198,10 @@ if [ -d "$DEFAULT_WAL" ]; then
 else
     print_msg "Wallpaper not found: $DEFAULT_WAL"
 fi
+
+print_success "system installation done!"
+print_msg 'There are a few settings requires changing manually:'
+
+print_msg '1) add "nvidia-drm.modeset=1 nvidia_drm.fbdev=1" in GRUB_CMDLINE_LINUX_DEFAULT and reload for grub'
+print_msg " or add it in /boot/loader/entries/ if using systemd-boot"
+read -p "Press [ENTER] to continue"
