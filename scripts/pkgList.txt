@@ -66,6 +66,8 @@ wl-clip-persist
 cliphist
 
 # snapshot
+grim
+slurp
 satty
 
 # login manager
