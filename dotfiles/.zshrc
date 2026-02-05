@@ -1,7 +1,10 @@
 export PATH=$PATH:~/.local/bin/
 
 eval "$(starship init zsh)"
+
 source <(fzf --zsh)
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh history
 HISTFILE=~/.zsh_history

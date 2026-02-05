@@ -81,6 +81,8 @@ starship
 eza
 fastfetch
 htop
+zsh-autosuggestions
+zsh-syntax-highlighting
 
 # auto mount
 gvfs

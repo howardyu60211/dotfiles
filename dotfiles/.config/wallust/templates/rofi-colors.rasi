@@ -1,11 +1,9 @@
 * {
-    /* 核心三色 */
-    background: {{background}};
-    foreground: {{foreground}};
-    accent:     {{color4}}; /* 與 Hyprland 保持一致 */
+    background:     {{background}}CC;
+    background-alt: {{color0}}CC;
 
-    /* 衍生顏色 */
-    background-alt: {{color0}}; /* 稍微亮一點的背景，用於選中項目背景 */
-    selected:       {{color4}}; /* 選中項目的文字或邊框 */
+    foreground:     {{foreground}};
+    selected:       {{color4}};
+    active:         {{color2}};
     urgent:         {{color1}};
 }
