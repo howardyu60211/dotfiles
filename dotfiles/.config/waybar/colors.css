@@ -1,10 +1,10 @@
-@define-color background #1C1C1E;
-@define-color foreground #FDE3D4;
-@define-color cursor #A59AA3;
+@define-color background #0E1014;
+@define-color foreground #FFF6CA;
+@define-color cursor #F79CB1;
 
-@define-color accent #587CB8;
+@define-color accent #ACAC9F;
 
-@define-color urgent #14141D;
+@define-color urgent #BD755B;
 
 @define-color color1 @urgent;
 @define-color color2 @accent;

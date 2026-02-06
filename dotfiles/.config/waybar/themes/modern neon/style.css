@@ -4,6 +4,10 @@
         0 0 4px alpha(@foreground, 0.4);
 }
 
+window#waybar {
+    background-color: transparent;
+}
+
 #workspaces button.active {
     color: @accent;
     text-shadow:
@@ -17,6 +21,7 @@
 }
 
 #clock {
+    padding: 0 8px;
     color: @accent;
     font-weight: 900;
     text-shadow:
@@ -38,19 +43,11 @@
 }
 
 #custom-fcitx.cn {
+    padding: 0 18px;
     color: @accent;
     text-shadow: 0 0 5px @accent;
 }
 
-@keyframes neon-blink {
-    from {
-        text-shadow:
-            0 0 5px @urgent,
-            0 0 10px alpha(@urgent, 0.6);
-        opacity: 1;
-    }
-    to {
-        text-shadow: none;
-        opacity: 0.5;
-    }
+# network {
+    padding: 0 18px;
 }

@@ -1,9 +1,6 @@
-backend = "kmeans"
+backend = "resized"
 color_space = "lab"
-palette = "dark16"
-
-[filter]
-image_filter = "lanczos"
+palette = "dark"
 
 [templates]
 hyprland.template = "hyprland-colors.conf"
