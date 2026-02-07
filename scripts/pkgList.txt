@@ -123,3 +123,5 @@ nvidia-utils
 nvidia-settings
 lib32-nvidia-utils
 power-profiles-daemon
+vulkan-radeon
+libva-nvidia-driver

@@ -1,53 +1,65 @@
-* {
-    text-shadow:
-        0 1px 2px rgba(0, 0, 0, 0.6),
-        0 0 4px alpha(@foreground, 0.4);
-}
+@import "colors.css";
 
 window#waybar {
     background-color: transparent;
 }
 
+#workspaces {
+    padding: 0 8px;
+}
+
+#workspaces button {
+    border: 1px solid transparent;
+}
+
 #workspaces button.active {
     color: @accent;
-    text-shadow:
-        0 0 20px @accent,
-        0 0 15px alpha(@accent, 0.5);
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 #workspaces button:hover {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+    border-color: @accent;
+    background: transparent;
+    box-shadow: none;
 }
 
-#clock {
+#clock,
+#window,
+#network,
+#custom-fcitx,
+#pulseaudio,
+#tray,
+#cpu,
+#memory,
+#battery {
     padding: 0 8px;
+    font-weight: 500;
     color: @accent;
-    font-weight: 900;
-    text-shadow:
-        0 0 4px @accent,
-        0 0 10px alpha(@accent, 0.6);
+    transition: color 0.3s ease;
 }
 
-#battery.critical,
-#battery.warning,
+#cpu.good,
+#memory.good,
+#battery.good {
+    color: @color2;
+}
+
+#cpu.warning,
+#memory.warning,
+#battery.warning{
+    color: @color3;
+}
+
+#cpu.critical,
+#memory.critical,
+#battery.critical {
+    color: @color1;
+}
+
 #network.disconnected {
-    color: @urgent;
-    text-shadow:
-        0 0 5px @urgent,
-        0 0 10px alpha(@urgent, 0.6);
-    animation-name: neon-blink;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    color: @color1;
 }
 
-#custom-fcitx.cn {
-    padding: 0 18px;
-    color: @accent;
-    text-shadow: 0 0 5px @accent;
-}
-
-# network {
-    padding: 0 18px;
+#network.linked {
+    color: @color3;
 }

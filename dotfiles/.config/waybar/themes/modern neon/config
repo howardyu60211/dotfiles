@@ -13,6 +13,8 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "cpu",
+        "memory",
         "battery",
         "tray",
         "custom/fcitx",
@@ -32,12 +34,17 @@
             "urgent": "",
             "focused": "",
             "default": ""
-        }
+        },
+        "on-click": "activate",
+        "ignore-workspaces": ["99"],
     },
     "hyprland/window": {
+        "rewrite": {
+            "": "(っ﹏-) .｡"
+        },
         "format": "{}",
         "max-length": 40,
-        "separate-outputs": true
+        "separate-outputs": true,
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -45,24 +52,35 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
+        "format": "",
+        "interval": 1,
+        "tooltip": false,
+        "states": {
+            "good": 20,
+            "warning": 50,
+            "critical": 80
+        }
     },
     "memory": {
-        "format": " {}%"
+        "format": "",
+        "interval": 1,
+        "states": {
+            "good": 20,
+            "warning": 50,
+            "critical": 80
+        }
     },
     "battery": {
         "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
+            "good": 60,
+            "warning": 40,
+            "critical": 20
         },
         "full-at": 100,
-        "format": "{icon} {capacity}%",
+        "format": "󱐋 {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
-        "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-full": ""
     },
     "network": {
         "format-wifi": "",
@@ -75,15 +93,15 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-muted": "",
+        "format-muted": " ",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", ""]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
         },
         "on-click": "pavucontrol"
     },
@@ -95,7 +113,6 @@
     },
     "tray": {
       "spacing": 10,
-      // 加入這行，將 fcitx 加入忽略列表
       "ignore-list": [
           "org.fcitx.Fcitx5"
       ]

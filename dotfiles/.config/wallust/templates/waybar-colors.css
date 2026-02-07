@@ -7,8 +7,8 @@
 @define-color urgent {{color1}};
 
 @define-color color1 @urgent;
-@define-color color2 @accent;
-@define-color color3 @accent;
+@define-color color2 {{color2}};
+@define-color color3 {{color3}};
 @define-color color4 @accent;
 @define-color color5 @accent;
 @define-color color6 @accent;

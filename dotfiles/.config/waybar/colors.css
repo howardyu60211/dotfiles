@@ -7,8 +7,8 @@
 @define-color urgent #BD755B;
 
 @define-color color1 @urgent;
-@define-color color2 @accent;
-@define-color color3 @accent;
+@define-color color2 #F04298;
+@define-color color3 #9892C3;
 @define-color color4 @accent;
 @define-color color5 @accent;
 @define-color color6 @accent;

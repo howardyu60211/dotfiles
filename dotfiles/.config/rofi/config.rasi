@@ -115,8 +115,3 @@ element alternate.normal {
     background-color:           transparent;
     text-color:                 @foreground;
 }
-
-element selected.normal {
-    background-color:           @selected;
-    text-color:                 @active;
-}
