@@ -1,0 +1,5 @@
+{
+    "timeout": 5,
+    "timeout-low": 2, 
+    "timeout-critical": 0,
+}

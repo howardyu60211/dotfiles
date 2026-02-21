@@ -146,11 +146,13 @@ done
 
 print_msg "Linking wallpapers..."
 mkdir -p $HOME/Pictures/wallpapers
-ln -sf "$DOTFILES_DIR/wallpapers" "$HOME/Pictures/wallpapers"
+ln -sf "$DOTFILES_DIR/wallpapers/" "$HOME/Pictures/"
 print_success "Done!"
 
 print_msg "Make scripts runable..."
-chmod +x ~/dotfiles/scripts/*.sh
+chmod +x ~/dotfiles/dotfiles/.config/waybar/scripts/*.sh
+chmod +x ~/dotfiles/dotfiles/.config/hypr/scripts/*.sh
+chmod +x ~/dotfiles/dotfiles/.config/rofi/scripts/*.sh
 print_success "Done!"
 
 if [ -d "/usr/share/sddm/themes/sddm-astronaut-theme" ]; then

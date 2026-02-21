@@ -1,0 +1,120 @@
+@import "colors.css";
+
+@define-color critical-color @color2;
+@define-color warning-color @color6;
+@define-color good-color @color5;
+
+window#waybar {
+    background-color: transparent;
+}
+
+#workspaces button {
+    border: 1px solid transparent;
+}
+
+#workspaces button.active {
+    color: @accent;
+    transition: all 0.5s ease;
+}
+
+#workspaces button:hover {
+    border-color: @accent;
+    background: transparent;
+    box-shadow: none;
+}
+
+#workspaces,
+#clock,
+#window,
+#network,
+#custom-fcitx,
+#pulseaudio,
+#memory,
+#battery,
+#custom-vpn,
+#custom-asusctl {
+    padding-left: 6px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-weight: 500;
+    color: @accent;
+    transition: color 0.3s ease;
+}
+
+#custom-fcitx,
+#pulseaudio {
+    padding: 0 8px;
+    margin-bottom: 0px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-weight: 500;
+    color: @accent;
+    transition: color 0.3s ease;
+}
+
+#network {
+    padding-left: 4px;
+    padding-right: 12px;
+    margin-bottom: 0px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-weight: 500;
+    color: @accent;
+    transition: color 0.3s ease;
+}
+
+#tray {
+    padding-left: 5px;
+    padding-right: 3px;
+    margin: 0;
+}
+
+#tray > .passive,
+#tray > .active,
+#tray > .needs-attention {
+    padding-left: 5px;
+    padding-right: 3px;
+    font-weight: 500;
+    color: @accent;
+    transition: color 0.3s ease;
+}
+
+#custom-asusctl.good,
+#memory.good,
+#battery.good {
+    border-bottom-color: @good-color;
+}
+
+#custom-asusctl.warning,
+#memory.warning,
+#battery.warning {
+    border-bottom-color: @warning-color;
+}
+
+#custom-asusctl.critical,
+#memory.critical,
+#battery.critical {
+    border-bottom-color: @critical-color;
+}
+
+#network.disconnected {
+    border-bottom-color: @critical-color;
+}
+
+#network.linked {
+    border-bottom-color: @warning-color;
+}
+
+#pulseaudio.bluetooth {
+    border-bottom-color: #3498db;
+    transition: background-color 0.3s ease; 
+}
+
+#custom-vpn.disconnected {
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+}

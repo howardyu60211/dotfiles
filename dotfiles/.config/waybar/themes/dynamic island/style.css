@@ -1,0 +1,48 @@
+@import "colors.css";
+
+* {
+    font-family: "Rubik", "JetBrainsMono Nerd Font Propo", "Noto Sans TC";
+}
+
+.modules-center {
+    background-color: rgba(34, 36, 54, 0.9);
+    border-radius: 16px;
+    padding: 6 12px
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+#workspaces {
+    padding: 0 10px;
+}
+
+#workspaces button {
+    color: @accent;
+    padding: 0 4px;
+    margin: 0 2px;
+}
+
+#workspaces button.active {
+    background-color: @accent;
+    transition: all 0.5s ease;
+    color: rgb(34, 36, 54);
+}
+
+#workspaces button:hover {
+    background-color: @accent;
+    color: rgb(34, 36, 54);
+    box-shadow: none;
+}
+
+#custom-asusctl,
+#custom-vpn,
+#memory,
+#battery,
+#custom-fcitx,
+#tray,
+#clock {
+    padding: 0 8px;
+    color: @accent;
+}

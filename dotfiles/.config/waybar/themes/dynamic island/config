@@ -1,0 +1,82 @@
+{
+    "position": "top",
+    "margin-top": 8,
+    "height":12,
+    
+    "modules-center": [
+        "clock",
+        "hyprland/workspaces",
+        "custom/asusctl",
+        "custom/vpn",
+        "memory",
+        "battery",
+        "custom/fcitx",
+        "tray"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "on-click": "activate",
+        "ignore-workspaces": ["99"],
+    },
+    "custom/asusctl": {
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/profile.sh",
+        "interval": 2,
+        "on-click": "asusctl profile next; pkill -SIGRTMIN+8 waybar",
+        "signal": 8,
+        "format": "{}",
+    },
+    "memory": {
+        "format": "",
+        "tooltip-format": "Used {percentage}%: {used} / {total} GiB",
+        "interval": 2,
+        "states": {
+            "good": 30,
+            "warning": 50,
+            "critical": 80
+        }
+    },
+    "battery": {
+        "states": {
+            "good": 60,
+            "warning": 40,
+            "critical": 20
+        },
+        "full-at": 100,
+        "format": "󱐋 {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "",
+        "format-full": ""
+    },
+    "custom/fcitx": {
+            "exec": "[[ $(fcitx5-remote) -eq 2 ]] && echo '{\"text\": \"中\", \"class\": \"cn\"}' || echo '{\"text\": \"A\", \"class\": \"en\"}'",
+            "return-type": "json",
+            "interval": 1,
+            "tooltip": false
+    },
+    "custom/vpn": {
+        "format": "{}",
+        "exec": "ip link show sdc > /dev/null 2>&1 && echo '{\"text\": \"\", \"class\": \"connected\", \"tooltip\": \"VPN Connected\"}' || echo '{\"text\": \"\", \"class\": \"disconnected\"}'",
+        "return-type": "json",
+        "interval": 5
+    },
+    "tray": {
+      "spacing": 10,
+      "ignore-list": [
+          "org.fcitx.Fcitx5"
+      ]
+    },
+}
